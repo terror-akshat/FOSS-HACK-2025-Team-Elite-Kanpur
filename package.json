@@ -1,0 +1,28 @@
+{
+  "name": "foss-hack-2025-team-elite-kanpur",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev":"nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terror-akshat/FOSS-HACK-2025-Team-Elite-Kanpur.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/terror-akshat/FOSS-HACK-2025-Team-Elite-Kanpur/issues"
+  },
+  "homepage": "https://github.com/terror-akshat/FOSS-HACK-2025-Team-Elite-Kanpur#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.9",
+    "serve": "^14.2.4",
+    "socket.io": "^4.8.1"
+  }
+}
