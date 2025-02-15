@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev":"nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/terror-akshat/FOSS-HACK-2025-Team-Elite-Kanpur#readme",
   "dependencies": {
+    "client": "^0.0.1",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "nodemon": "^3.1.9",
+    "react-scripts": "^5.0.1",
     "serve": "^14.2.4",
     "socket.io": "^4.8.1"
   }
