@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import { SocketContext } from '../Context';
 
 const Whiteboard = () => {
@@ -6,18 +6,24 @@ const Whiteboard = () => {
   const ctxRef = useRef();
   const drawing = useRef(false);
 
-  // Get socket context values
-  const { emitDrawing, roomId } = useContext(SocketContext);
-  const { socket } = useContext(SocketContext);
+  // Socket Context
+  const { emitDrawing, roomId, socket } = useContext(SocketContext);
 
-  // Define drawLine function
-  const drawLine = (x, y, prevX, prevY) => {
-    if (!ctxRef.current) return false;
+  // State for tool settings
+  const [toolSize, setToolSize] = useState(2);
+  const [eraserSize, setEraserSize] = useState(10);
+  const [toolColor, setToolColor] = useState('black');
+  const [toolType, setToolType] = useState('pen'); // pen, pencil, eraser
+
+  // Draw line function
+  const drawLine = (x, y, prevX, prevY, color, size) => {
+    if (!ctxRef.current) return;
     ctxRef.current.beginPath();
     ctxRef.current.moveTo(prevX, prevY);
     ctxRef.current.lineTo(x, y);
+    ctxRef.current.strokeStyle = color;
+    ctxRef.current.lineWidth = size;
     ctxRef.current.stroke();
-    return true;
   };
 
   useEffect(() => {
@@ -25,32 +31,26 @@ const Whiteboard = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
-    // Set canvas dimensions and background color
     canvas.width = 800;
     canvas.height = 600;
     ctx.fillStyle = 'white';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Configure drawing settings
-    ctx.lineWidth = 2;
     ctx.lineCap = 'round';
-    ctx.strokeStyle = 'black';
     ctxRef.current = ctx;
 
-    // Handle incoming drawing events
-    const handleDrawEvent = (data) => drawLine(data.x, data.y, data.prevX, data.prevY);
+    const handleDrawEvent = (data) => {
+      drawLine(data.x, data.y, data.prevX, data.prevY, data.color, data.size);
+    };
 
     if (socket) {
-      // Listen for draw events
       socket.on('draw', handleDrawEvent);
 
-      // Cleanup listener when component unmounts
       return () => {
         socket.off('draw', handleDrawEvent);
-        return true;
       };
     }
-    return undefined;
+    return 0;
   }, [socket]);
 
   const handleMouseDown = (e) => {
@@ -64,15 +64,18 @@ const Whiteboard = () => {
     const { offsetX, offsetY } = e.nativeEvent;
     const prevPos = drawing.current;
 
-    // Draw locally
-    drawLine(offsetX, offsetY, prevPos.x, prevPos.y);
+    const drawColor = toolType === 'eraser' ? 'white' : toolColor;
+    const drawSize = toolType === 'eraser' ? eraserSize : toolSize;
 
-    // Emit drawing data to room
+    drawLine(offsetX, offsetY, prevPos.x, prevPos.y, drawColor, drawSize);
+
     emitDrawing({
       x: offsetX,
       y: offsetY,
       prevX: prevPos.x,
       prevY: prevPos.y,
+      color: drawColor,
+      size: drawSize,
     });
 
     drawing.current = { x: offsetX, y: offsetY };
@@ -91,23 +94,78 @@ const Whiteboard = () => {
       <canvas
         ref={canvasRef}
         style={{
-          border: '1px solid black',
+          border: '2px solid #444',
           backgroundColor: 'white',
           cursor: roomId ? 'crosshair' : 'not-allowed',
+          borderRadius: '10px',
+          boxShadow: '2px 2px 10px rgba(0, 0, 0, 0.1)',
         }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
       />
-      {!roomId && (
-        <div
-          style={{
-            textAlign: 'center',
-            marginTop: '10px',
-            color: 'red',
-          }}
+
+      {/* Tools Section */}
+      <div className="controls">
+        <button
+          type="button"
+          className={`tool-button ${toolType === 'pen' ? 'active' : ''}`}
+          onClick={() => setToolType('pen')}
         >
+          ✒️ Pen
+        </button>
+        <button
+          type="button"
+          className={`tool-button ${toolType === 'pencil' ? 'active' : ''}`}
+          onClick={() => setToolType('pencil')}
+        >
+          ✏️ Pencil
+        </button>
+        <button
+          type="button"
+          className={`tool-button ${toolType === 'eraser' ? 'active' : ''}`}
+          onClick={() => setToolType('eraser')}
+        >
+          🧼 Eraser
+        </button>
+
+        {/* Color Picker */}
+        <input
+          type="color"
+          className="color-picker"
+          value={toolColor}
+          onChange={(e) => setToolColor(e.target.value)}
+          disabled={toolType === 'eraser'}
+        />
+
+        {/* Pen & Pencil Size Adjuster */}
+        {toolType !== 'eraser' && (
+          <input
+            type="range"
+            min="1"
+            max="10"
+            value={toolSize}
+            onChange={(e) => setToolSize(e.target.value)}
+            className="size-slider"
+          />
+        )}
+
+        {/* Eraser Size Adjuster */}
+        {toolType === 'eraser' && (
+          <input
+            type="range"
+            min="5"
+            max="50"
+            value={eraserSize}
+            onChange={(e) => setEraserSize(e.target.value)}
+            className="size-slider"
+          />
+        )}
+      </div>
+
+      {!roomId && (
+        <div className="error-message">
           Join a call to enable whiteboard collaboration
         </div>
       )}
