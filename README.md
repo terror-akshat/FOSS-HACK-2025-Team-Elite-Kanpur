@@ -1,6 +1,6 @@
 # FOSS-HACK-2025-Team- The Elite-Kanpur
 
-📸 Screenshots & Demo
+# 📸 Screenshots & Demo
 website: https://funny-trifle-39cd51.netlify.app/
 
 
@@ -10,19 +10,19 @@ Built using Node.js, Express, Socket.io, and WebRTC, BoardMeet ensures low-laten
 
 
 # ✨ Features
-✅ Real-Time Whiteboard Collaboration – Instantly sync drawings and sketches between two users.
-🎥 One-on-One Video Calls – Secure, high-quality peer-to-peer communication using WebRTC.
-🔗 Easy Room Creation – Join a session by simply sharing a room ID.
-⚡ Low-Latency Communication – Built with Socket.io for fast updates.
-🔒 Private & Secure – Only two participants per session, ensuring privacy.
+* ✅ Real-Time Whiteboard Collaboration – Instantly sync drawings and sketches between two users.
+* 🎥 One-on-One Video Calls – Secure, high-quality peer-to-peer communication using WebRTC.
+* 🔗 Easy Room Creation – Join a session by simply sharing a room ID.
+* ⚡ Low-Latency Communication – Built with Socket.io for fast updates.
+* 🔒 Private & Secure – Only two participants per session, ensuring privacy.
 
 # 📌 How It Works
-1️⃣ Create a Meeting Room – One user creates a unique room ID.
-2️⃣ Join the Room – The second user enters the room using the same ID.
-3️⃣ Start the Collaboration –
+* 1️⃣ Create a Meeting Room – One user creates a unique room ID.
+* 2️⃣ Join the Room – The second user enters the room using the same ID.
+* 3️⃣ Start the Collaboration –
    * Video Call: Communicate in real-time.
    * Whiteboard: Draw and see live updates instantly.
-4️⃣ Exit Anytime – The session ends when a user disconnects.
+* 4️⃣ Exit Anytime – The session ends when a user disconnects.
 
 
 # 🛠️ Tech Stack
@@ -48,11 +48,7 @@ Hosting: Deployed on Heroku/Vercel/Render
 
 
 # 🛠 API Endpoints
-Endpoint     	Method	        Description
-/	             GET	       Check if the server is running
-callUser	     POST	       Initiate a video call
-answerCall	   POST	       Accept a call invitation
-draw	         POST	       Send whiteboard drawing data
+![image](https://github.com/user-attachments/assets/0d7a914b-c6b9-41f7-9efa-50ae5c63de12)
 
 
 # 📜 License
