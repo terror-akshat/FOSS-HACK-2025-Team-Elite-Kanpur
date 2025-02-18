@@ -1,16 +1,96 @@
-body {
-    background:
-    linear-gradient(
-      rgba(0, 0, 0, 0.3), 
-      rgba(0, 0, 0, 0.3)
-    ),
-    url(https://i.pinimg.com/originals/8f/14/57/8f14578ef69a4c53352955d1e072eda6.png);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+.whiteboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 850px;
+  margin: auto;
 }
 
-* {
-    margin: 0;
-    padding: 0;
+canvas {
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  border: 3px solid #444;
+  border-radius: 10px;
+  background-color: white;
+  cursor: crosshair;
+  transition: all 0.3s ease;
+}
+
+canvas:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Tools Section */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+}
+
+.tool-button {
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tool-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.tool-button.active {
+  background: linear-gradient(to right, #ff512f, #dd2476);
+  transform: scale(1.05);
+}
+
+/* Color Picker */
+.color-picker {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.color-picker:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Size Sliders */
+.size-slider {
+  width: 100px;
+  cursor: pointer;
+  accent-color: #2575fc;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-weight: bold;
+  background: rgba(255, 77, 77, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
 }

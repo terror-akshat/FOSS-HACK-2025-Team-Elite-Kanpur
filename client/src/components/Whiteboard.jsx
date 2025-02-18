@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useContext } from 'react';
 import { SocketContext } from '../Context';
+import '../styles.css';
 
 const Whiteboard = () => {
   const canvasRef = useRef(null);
