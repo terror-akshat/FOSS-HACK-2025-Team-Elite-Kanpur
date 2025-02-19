@@ -1,8 +1,8 @@
 # FOSS-HACK-2025-Team- The Elite-Kanpur
 
 # 📸 Screenshots & Demo
-website URL: https://funny-trifle-39cd51.netlify.app/
-Demo URL: https://www.youtube.com/watch?v=wLLyXFKPubA
+# website URL: https://funny-trifle-39cd51.netlify.app/
+# Demo URL: https://www.youtube.com/watch?v=wLLyXFKPubA
 ![WhatsApp Image 2025-02-19 at 10 31 34 PM](https://github.com/user-attachments/assets/c141a9c8-304d-4496-abd0-cbaa6dc9be01)
 ![WhatsApp Image 2025-02-19 at 10 31 35 PM](https://github.com/user-attachments/assets/9c37b00a-22ac-47fd-a952-9084b0897e3a)
 ![WhatsApp Image 2025-02-19 at 10 31 34 PM (1)](https://github.com/user-attachments/assets/77df9466-c3fb-4525-bdb0-84f752c83760)
