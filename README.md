@@ -1,7 +1,15 @@
 # FOSS-HACK-2025-Team- The Elite-Kanpur
 
 # 📸 Screenshots & Demo
-website: https://funny-trifle-39cd51.netlify.app/
+website URL: https://funny-trifle-39cd51.netlify.app/
+Demo URL: https://www.youtube.com/watch?v=wLLyXFKPubA
+![WhatsApp Image 2025-02-19 at 10 31 34 PM](https://github.com/user-attachments/assets/c141a9c8-304d-4496-abd0-cbaa6dc9be01)
+![WhatsApp Image 2025-02-19 at 10 31 35 PM](https://github.com/user-attachments/assets/9c37b00a-22ac-47fd-a952-9084b0897e3a)
+![WhatsApp Image 2025-02-19 at 10 31 34 PM (1)](https://github.com/user-attachments/assets/77df9466-c3fb-4525-bdb0-84f752c83760)
+![WhatsApp Image 2025-02-19 at 10 31 36 PM](https://github.com/user-attachments/assets/01b6439a-2af3-4097-9dbe-da80d9fc8613)
+![WhatsApp Image 2025-02-19 at 10 32 26 PM](https://github.com/user-attachments/assets/96fbbb7a-0a3c-4137-81da-9e130e9b7ec1)
+![WhatsApp Image 2025-02-19 at 10 31 37 PM](https://github.com/user-attachments/assets/87ee0289-fde8-4819-94e0-238eb9bd46ad)
+![WhatsApp Image 2025-02-19 at 10 31 36 PM (1)](https://github.com/user-attachments/assets/5fd1e9bc-44b8-4cf6-ba81-cdf015d02db5)
 
 
 #  BoardMeet - Real-time Whiteboard & Video Calling for Two Users 🎨🎥
