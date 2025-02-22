@@ -5,6 +5,9 @@ import Peer from 'simple-peer';
 const SocketContext = createContext();
 
 const socket = io('https://server-1-x9s9.onrender.com');
+/* To  avoiding the cors origin error refer the local host as below:
+  const socket = io('http://localhost:9000');
+*/
 
 const ContextProvider = ({ children }) => {
   const [callAccepted, setCallAccepted] = useState(false);
