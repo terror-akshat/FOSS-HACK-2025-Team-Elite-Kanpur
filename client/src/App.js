@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
   },
 
-  /* Gradient Animation */
+  /* Keyframes Animation */
   '@keyframes gradientBG': {
     '0%': { backgroundPosition: '0% 50%' },
     '50%': { backgroundPosition: '100% 50%' },
