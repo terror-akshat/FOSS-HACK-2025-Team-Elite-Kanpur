@@ -15,6 +15,17 @@ const io = socketIo(server, {
   },
 });
 
+/*
+  to avoid the  cors origin error refer localhost as given below:
+  const io = socketIo(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
+
+*/
+
 app.use(cors());
 
 const PORT = process.env.PORT || 9000;
