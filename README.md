@@ -1,7 +1,7 @@
 # FOSS-HACK-2025-Team- The Elite-Kanpur
 
 # 📸 Screenshots & Demo
-# website URL: https://boardmeet.netlify.app/
+# website URL: (https://charming-chebakia-38d373.netlify.app/)
 # Demo URL: https://www.youtube.com/watch?v=wLLyXFKPubA
 ![WhatsApp Image 2025-02-19 at 10 31 34 PM](https://github.com/user-attachments/assets/c141a9c8-304d-4496-abd0-cbaa6dc9be01)
 ![WhatsApp Image 2025-02-19 at 10 31 35 PM](https://github.com/user-attachments/assets/9c37b00a-22ac-47fd-a952-9084b0897e3a)
